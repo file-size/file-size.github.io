@@ -20,7 +20,7 @@ Hold down ``alt`` Key + click the thermal image to open the .js source file.
 ## Load
 
 ```js
-<script src="https://file-size.github.io/elements.js">
+<script src="https://file-size.github.io/element.js">
 ```
 
  &nbsp; &nbsp; OR
