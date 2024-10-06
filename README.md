@@ -31,6 +31,8 @@ import {} from "https://file-size.github.io/element.js";
 
 ## Issues
 
+* 3rd party API can has a traffic limit
+* 3rd party API errors on files over 48-56 Kilobytes
 * You can't read files from other servers unless that server allows you to  
 [CORS - Cross Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) 
 

@@ -15,8 +15,7 @@ customElements.define(
         if (!img) {
           this.querySelector("i").innerHTML = "Loading GZIP Thermal analysis";
           img = this.querySelector("img");
-          img.onerror = (e) =>
-            (this.querySelector("i").innerHTML = "Too many bytes for analysis");
+          img.onerror = (e) => new Error("API rate limit enforced");
           img.onload = (e) => {
             this.querySelector("i").innerHTML = "";
             img.style.width = (this.getAttribute("width") || "700") + "px";
