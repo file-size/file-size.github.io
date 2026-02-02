@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Size Inspector</title>
+    <script src="element.js"></script>
+    <style>
+        body {
+            font: 18px arial;
+            margin: 1em;
+        }
+
+        #RESULT {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>File Size Inspector</h1>
+
+    <label for="FILENAME">filename:</label>
+    <input type="text" id="FILENAME" style="width:90vw" placeholder="example.txt">
+<br><br>
+    <button id="BUTTON">Inspect</button>
+
+    <div id="RESULT"></div>
+
+    <script>
+        FILENAME.value = `https://raw.githubusercontent.com/family-calendar/family-calendar.github.io/refs/heads/main/jquery.min.js`;
+        const loadFile = () => {
+            let filename = FILENAME.value.split("?")[0];
+            localStorage.setItem('filename', filename);
+            filename += `?t=` + new Date()/1;
+            if (filename.trim()) {
+                RESULT.innerHTML = `<file-size src="${filename}"></file-size>`;
+            } else {
+                RESULT.innerHTML = '<p>Please enter a filename</p>';
+            }
+        }
+        FILENAME.value = localStorage.getItem('filename') || FILENAME.value;
+        FILENAME.onkeyup = (evt) => {
+            if (evt.key === 'Enter') {
+                loadFile();
+            }
+        };
+        BUTTON.onclick = () => {
+            loadFile();
+        };
+    </script>
+</body>
+
+</html>
